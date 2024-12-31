@@ -51,6 +51,8 @@ class UserController {
             const newUser = await user.save();
             await createUserToken(newUser, req, res);
 
+            res.status(201).json({ message: "Usuário cadastrado com sucesso!" })
+
         } catch (error) {
             res.status(500).json({ message: 'Erro ao criar o usuário.', error });
         }

@@ -8,7 +8,7 @@ const app = express(); // Invocação do express
 
 app.use(express.static('public'));  // Definicão de arquivos estaticos
 app.use(express.json());    // Definição para leitura de arquivos JSON
-app.use(cors({ credentials: true, origin: 'http://localhost:3018' }));  // Endereço da apliação no front end
+app.use(cors({ credentials: true, origin: 'http://localhost:3000' }));  // Endereço da apliação no front end
 app.use(express.static('public'));  // Definicão de arquivos estaticos
 
 // Routes

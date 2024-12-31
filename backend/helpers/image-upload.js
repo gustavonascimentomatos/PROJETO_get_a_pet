@@ -3,6 +3,7 @@ import path from "path";
 
 // Destination to store the images
 const imageStorage = multer.diskStorage({
+
     destination: function(req, file, cb) {
     
         let folder = "";
