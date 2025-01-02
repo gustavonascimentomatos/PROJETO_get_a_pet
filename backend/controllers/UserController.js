@@ -8,56 +8,54 @@ import User from '../models/User.js';
 class UserController {
 
     static async register(req, res) {
-
         try {
-            const { name, email, phone, password, confirmpassword  } = req.body
+            const { name, email, phone, password, confirmpassword } = req.body;
             const requiredFields = {
                 name: 'O campo Nome é obrigatório!',
                 email: 'O campo E-mail é obrigatório!',
                 phone: 'O campo Telefone é obrigatório!',
                 password: 'O campo Senha é obrigatório!',
-                confirmpassword: 'O campo Confirmação de Senha é obrigatório!'
+                confirmpassword: 'O campo Confirmação de Senha é obrigatório!',
             };
-
-            // Validations dados
+    
+            // Validação dos dados
             for (const [field, message] of Object.entries(requiredFields)) {
                 if (!req.body[field]) {
-                    res.status(422).json({ message });
-                    return;
+                    return res.status(422).json({ message });
                 }
             }
-
+    
             if (password !== confirmpassword) {
-                res.status(422).json({ message: "A senha e a confirmação de senha precisam ser iguais!" });
-                return;
+                return res.status(422).json({ message: "A senha e a confirmação de senha precisam ser iguais!" });
             }
-
-            // Validadion if user exists
+    
+            // Validação se o usuário já existe
             const userExists = await User.findOne({ email });
-
+    
             if (userExists) {
-                res.status(422).json({ message: "E-mail já cadastrado! Por favor utilize outro E-mail!" });
-                return;
+                return res.status(422).json({ message: "E-mail já cadastrado! Por favor utilize outro E-mail!" });
             }
-
-            // Create a password
+    
+            // Criação da senha
             const salt = await bcrypt.genSalt(10);
             const passwordHash = await bcrypt.hash(password, salt);
-
-            // Create a user
+    
+            // Criação do usuário
             const user = new User({ name, email, phone, password: passwordHash });
-
-            // Save user on db
+    
+            // Salvar usuário no banco
             const newUser = await user.save();
+    
+            // Geração do token e envio da resposta
             await createUserToken(newUser, req, res);
-
-            res.status(201).json({ message: "Usuário cadastrado com sucesso!" })
-
+    
         } catch (error) {
             res.status(500).json({ message: 'Erro ao criar o usuário.', error });
         }
-
     }
+    
+    
+    
 
     static async login(req, res) {
         
