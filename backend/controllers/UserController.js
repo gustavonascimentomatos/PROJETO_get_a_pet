@@ -52,10 +52,7 @@ class UserController {
         } catch (error) {
             res.status(500).json({ message: 'Erro ao criar o usuário.', error });
         }
-    }
-    
-    
-    
+    } 
 
     static async login(req, res) {
         
