@@ -20,7 +20,7 @@ function Login() {
 
     return (
         <section className={styles.form_container}>
-            <h1>Login</h1>
+            <h1>Entrar</h1>
             <form onSubmit={handleSubmit}>
                 <Input text='E-mail' type='email' name='email' placeholder='Digite o seu e-mail' handleOnChange={handleChange}></Input>
                 <Input text='Senha' type='password' name='password' placeholder='Digite a sua senha' handleOnChange={handleChange}></Input>

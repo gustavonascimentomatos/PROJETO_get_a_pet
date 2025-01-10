@@ -215,10 +215,7 @@ class PetController {
             updatedData.name = name;
             updatedData.available = available;
 
-            if (images.length === 0) {
-                res.status(422).json({ message: 'O campo imagem é obrigatório!' });
-                return;
-            } else {
+            if (images.length > 0) {
                 updatedData.images = [];
                 images.map((image) => {
                     updatedData.images.push(image.filename);

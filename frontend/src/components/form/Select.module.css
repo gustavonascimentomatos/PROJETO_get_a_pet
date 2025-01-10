@@ -5,18 +5,13 @@
 }
 
 .form_control label {
-    margin-bottom: .3em;
+    margin-bottom: .6em;
     font-weight: bold;
-    font-size: .8em;
     text-align: left;
 }
 
-.form_control input {
+.form_control select {
     padding: .7em;
     border: 1px solid #777;
     border-radius: 5px;
-}
-
-.form_control input::placeholder {
-    color: #7B7B7B;
 }
