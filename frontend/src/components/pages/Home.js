@@ -20,7 +20,6 @@ function Home() {
         <section>
             <div className={styles.pet_home_header}>
                 <h1>Adote um Pet</h1>
-                <p>Veja os detalhes de cada um e conheça o tutor deles</p>
             </div>
             <div className={styles.pet_container}>
                 {pets.length > 0 && (

@@ -46,6 +46,7 @@
 
 .petlist_row span {
     min-width: 100px;
+    text-decoration: none !important;
 }
 
 .actions {

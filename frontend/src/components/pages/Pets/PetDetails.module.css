@@ -6,6 +6,12 @@
     margin-bottom: .3em;
 }
 
+.pet_details_container p a {
+    color: #16479d;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
 .pet_details_container button {
     margin-top: 1.7em;
     text-decoration: none;
