@@ -20,7 +20,7 @@ function PetDetails() {
     async function schedule() {
         
         let msgType = 'success'
-        const data = await api.patch(`pets/schedule/${pet._id}`, {
+        const data = await api.patch(`pets/schedule/${pet._id}`, {}, {
             headers: {
                 Authorization: `Bearer ${JSON.parse(token)}`
             }

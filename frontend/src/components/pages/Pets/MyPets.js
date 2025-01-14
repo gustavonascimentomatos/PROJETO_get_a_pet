@@ -44,7 +44,6 @@ function MyPets() {
      
     async function concludeAdoption(id) {
         let msgType = 'success'
-
         const data = await api.patch(`/pets/conclude/${id}`, {
             headers: {
                 Authorization: `Bearer ${JSON.parse(token)}`
@@ -91,7 +90,6 @@ function MyPets() {
                     ))
                 }
                 {pets.length === 0 && (<p>Não há Pets cadastrados {pets.length}</p>)}
-                {pets.length === 1 && (<p>Meu Pet cadastrado</p>)}
             </div>
         </section>
     )
